@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Electron</title>
+    <script src="./libs/live2dcubismcore.min.js"></script>
+    <script src="./libs/live2d.min.js"></script>
+    <script type="module" crossorigin src="./assets/main-DAOq5DPa.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/main-cK76Ls7m.css">
+    <style>
+      /* Container to hold both frame containers side by side */
+      .frames-wrapper {
+        display: flex; /* Use flexbox to arrange the frames side by side */
+        width: 100%;
+        height: 100vh; /* Full viewport height */
+      }
+
+      /* Frame style to simulate iframe */
+      .frame-container {
+        width: 50%; /* 50% width for each frame */
+        height: 100%; /* Full height */
+        border: 2px solid #000; /* Border to simulate a frame */
+        overflow: hidden; /* Hide any overflow */
+        position: relative;
+      }
+
+      /* Optional: Style the #root to fit the frame */
+      #root {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: lightgray; /* Optional background color */
+      }
+
+      /* Style for the button in the right frame */
+      #toggleButton {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* Hidden frame (for the left frame when hidden) */
+      .hidden {
+        display: none;
+      }
+
+      /* Style the iframe */
+      #iframeContainer {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="frames-wrapper">
+      <!-- Left frame container -->
+      <div class="frame-container" id="leftFrame">
+        <div id="root">Left Frame</div>
+      </div>
+
+      <!-- Right frame container with iframe -->
+      <div class="frame-container" id="rightFrame">
+        <div >Right Frame</div>
+        <div >Right Frame2</div>
+        <!-- Iframe to load the URL -->
+        <div id="iframeContainer">
+          <iframe src="http://localhost:54643" style="width: 100%; height: 100%; border: none;"></iframe>
+        </div>
+        <!-- Button to toggle the left frame -->
+        <button id="toggleButton">Hide Left Frame</button>
+      </div>
+    </div>
+
+    <script>
+      // Get references to the frames and button
+      const leftFrame = document.getElementById('leftFrame');
+      const rightFrame = document.getElementById('rightFrame');
+      const toggleButton = document.getElementById('toggleButton');
+
+      let leftFrameHidden = false; // Track whether the left frame is hidden
+
+      // Add event listener for button click
+      toggleButton.addEventListener('click', function () {
+        // Toggle the hidden class on the left frame
+        leftFrameHidden = !leftFrameHidden;
+
+        if (leftFrameHidden) {
+          // Hide the left frame
+          leftFrame.classList.add('hidden');
+
+          // Adjust the right frame to take up the entire screen width
+          rightFrame.style.width = '100%'; // Make the right frame full width
+          toggleButton.innerText = 'Show Left Frame'; // Change button text
+        } else {
+          // Show the left frame
+          leftFrame.classList.remove('hidden');
+
+          // Adjust the right frame back to 50% width
+          rightFrame.style.width = '50%'; // Restore the right frame width
+          toggleButton.innerText = 'Hide Left Frame'; // Change button text back
+        }
+      });
+    </script>
+  </body>
+</html>
