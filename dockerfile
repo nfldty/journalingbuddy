@@ -28,6 +28,7 @@ RUN curl https://bootstrap.pypa.io/get-pip.py | python3 - && \
 WORKDIR /opt/MeloTTS
 RUN git clone https://github.com/myshell-ai/MeloTTS.git /opt/MeloTTS && \
     pip install --root-user-action=ignore --no-cache-dir -e . && \
+    pip install fish_audio_sdk \
     python3 -m unidic download && \
     python3 melo/init_downloads.py
 

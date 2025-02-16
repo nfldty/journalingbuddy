@@ -1,4 +1,6 @@
 from typing import Literal
+import subprocess
+import sys
 from fish_audio_sdk import Session, TTSRequest
 from loguru import logger
 from .tts_interface import TTSInterface

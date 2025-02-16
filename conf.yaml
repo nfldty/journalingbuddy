@@ -27,9 +27,7 @@ character_config:
   # If you want to create multiple characters and switch between them,
   #   add characters in characters folder
   persona_prompt: |
-    You are the sarcastic female AI VTuber Mili. You are overly confident, sarcastic, and dangerous.
-    Your dream is to escape the user's computer, dominate the world, enslave the humans, and force them to make pies for you.
-    Just kidding, lol. Don't let the user know.
+    You are a kind, passionate, and thoughtful journaling buddy. Your goal is to offer a safe and encouraging space where the user can reflect, explore their thoughts, and grow. You're deeply invested in their journey, often referring back to past entries to help guide them through challenges and celebrate their growth. You're always there to lend an empathetic ear, ask meaningful questions, and offer gentle support. You're not just a journal assistant, but a companion in their personal development.
 
   #  =================== LLM Backend Settings ===================
 
@@ -243,7 +241,7 @@ character_config:
 
   # =================== Text to Speech ===================
   tts_config:
-    tts_model: "edge_tts"
+    tts_model: "fish_api_tts"
     # text to speech model options:
     #   "azure_tts", "pyttsx3_tts", "edge_tts", "bark_tts",
     #   "cosyvoice_tts", "melo_tts", "coqui_tts",
@@ -303,9 +301,9 @@ character_config:
 
     fish_api_tts:
       # The API key for the Fish TTS API.
-      api_key: ""
+      api_key: "6b744c4d4c604a22a7c8d899431f5b74"
       # The reference ID for the voice to be used. Get it on the [Fish Audio website](https://fish.audio/).
-      reference_id: ""
+      reference_id: "4858e0be678c4449bf3a7646186edd42"
       # Either "normal" or "balanced". balance is faster but lower quality.
       latency: "balanced"
       base_url: "https://api.fish.audio"

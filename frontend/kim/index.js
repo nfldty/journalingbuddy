@@ -33,9 +33,67 @@ document.addEventListener("DOMContentLoaded", () => {
         item.type !== "document-crop" &&
         item.type !== "link"
       );
-
         // Set the new toolbar items without the "ink" item
         instance.setToolbarItems(filteredItems);
+        const extractAndSendData = () => {
+          const totalPage = instance.totalPageCount;
+
+          // Get current timestamp
+          const timestamp = new Date().toISOString();
+
+          // Define JSON file format
+          const jsonData = [
+              {
+                  "role": "metadata", 
+                  "timestamp": timestamp
+              }
+          ];
+
+          let fullText = ""; // Store all extracted text
+
+          // Loop through each page and extract text
+          const extractTextPromises = [];
+          for (let pageIndex = 0; pageIndex < totalPage; pageIndex++) {
+              extractTextPromises.push(
+                  instance.textLinesForPageIndex(pageIndex).then(textLines => {
+                      const pageText = textLines.map(textLine => textLine.contents).join(" "); // Merge text lines
+                      fullText += pageText + " "; // Append to full text with spacing
+                  }).catch(error => {
+                      console.error(`Error extracting text from page ${pageIndex}:`, error);
+                  })
+              );
+          }
+
+          Promise.all(extractTextPromises)
+          .then(() => {
+            jsonData.push({
+              "role": "human",
+              "timestamp": timestamp,
+              "text": fullText.trim()
+            });
+
+            // Send the JSON data to the server
+            fetch('http://127.0.0.1:5000/save_json', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(jsonData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+          }).catch(error => {
+            console.error("Error during text extraction:", error);
+          });
+        };
+
+        // Run the extraction every 5 seconds
+        setInterval(extractAndSendData, 5000);
   })
   .catch(error => {
       console.error("PSPDFKit loading error:", error.message);

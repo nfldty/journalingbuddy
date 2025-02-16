@@ -34,6 +34,10 @@
         background-color: lightgray; /* Optional background color */
       }
 
+      .css-1l1wf02 { 
+        visibility: hidden !important;
+      }
+
       /* Style for the button in the right frame */
       #toggleButton {
         position: absolute;
@@ -69,11 +73,9 @@
 
       <!-- Right frame container with iframe -->
       <div class="frame-container" id="rightFrame">
-        <div >Right Frame</div>
-        <div >Right Frame2</div>
         <!-- Iframe to load the URL -->
         <div id="iframeContainer">
-          <iframe src="http://localhost:54643" style="width: 100%; height: 100%; border: none;"></iframe>
+          <iframe src="http://localhost:3001/frontend/home/home.html" style="width: 100%; height: 100%; border: none;"></iframe>
         </div>
         <!-- Button to toggle the left frame -->
         <button id="toggleButton">Hide Left Frame</button>
@@ -106,7 +108,7 @@
 
           // Adjust the right frame back to 50% width
           rightFrame.style.width = '50%'; // Restore the right frame width
-          toggleButton.innerText = 'Hide Left Frame'; // Change button text back
+          toggleButton.innerText = 'Hide Nomi T_T'; // Change button text back
         }
       });
     </script>

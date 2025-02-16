@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Journaling Buddy</title>
+   <style>
+       body {
+           font-family: "Sans-serif", Arial, sans-serif;
+           background-color: #F8E8EE;
+           text-align: center;
+           margin: 0;
+           padding: 0;
+       }
+       .container {
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           justify-content: center;
+           height: 100vh;
+       }
+       h1 {
+           color: #A28089;
+           font-size: 48px; /* Increased font size */
+           font-weight: bold;
+       }
+       p {
+           color: #6D4C55;
+           max-width: 600px;
+           font-size: 18px;
+           line-height: 1.5;
+       }
+       .start-button {
+           background-color: #C8A2C8;
+           color: white;
+           border: none;
+           padding: 15px 30px;
+           font-size: 18px;
+           border-radius: 10px;
+           cursor: pointer;
+           transition: background 0.3s;
+       }
+       .start-button:hover {
+           background-color: #A28089;
+       }
+       .past-journals {
+           margin-top: 20px;
+       }
+       .journal-list {
+           list-style: none;
+           padding: 0;
+       }
+       .journal-list li {
+           background-color: #E8D8DC;
+           padding: 10px;
+           margin: 5px;
+           border-radius: 5px;
+           cursor: pointer;
+           transition: background 0.3s;
+       }
+       .journal-list li:hover {
+           background-color: #D1B6BE;
+       }
+   </style>
+</head>
+<body>
+   <div class="container">
+       <h1>Welcome to Journaling Buddy</h1>
+       <p>Write your thoughts down and let AI help you reflect, grow, and remember. Our intelligent journaling app integrates emotion-aware AI, speech-to-text, and a virtual avatar to guide your self-discovery journey—one entry at a time.</p>
+       <button class="start-button" onclick="startJournaling()">Start Journaling</button>
+      
+   </div>
+  
+   <script>
+       function startJournaling() {
+           window.location.href = 'http://localhost:12393'; // Redirect to journaling session
+       }
+   </script>
+</body>
+</html>
