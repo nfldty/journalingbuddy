@@ -243,7 +243,7 @@ character_config:
 
   # =================== Text to Speech ===================
   tts_config:
-    tts_model: "edge_tts"
+    tts_model: "fish_api_tts"
     # text to speech model options:
     #   "azure_tts", "pyttsx3_tts", "edge_tts", "bark_tts",
     #   "cosyvoice_tts", "melo_tts", "coqui_tts",
@@ -303,9 +303,9 @@ character_config:
 
     fish_api_tts:
       # The API key for the Fish TTS API.
-      api_key: ""
+      api_key: "6b744c4d4c604a22a7c8d899431f5b74"
       # The reference ID for the voice to be used. Get it on the [Fish Audio website](https://fish.audio/).
-      reference_id: ""
+      reference_id: "5ac6fb7171ba419190700620738209d8"
       # Either "normal" or "balanced". balance is faster but lower quality.
       latency: "balanced"
       base_url: "https://api.fish.audio"
