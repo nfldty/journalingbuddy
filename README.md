@@ -1,4 +1,3 @@
-**#journallingbuddy**
 Journaling Buddy is your thoughtful AI companion that helps you reflect on your day—not just by reading your entries, but by talking to you about them. Write down your thoughts in your personal journal, and our empathetic AI avatar will gently ask how you're feeling and encourage deeper reflection, just like a mindful friend.
 
 ✨ Features
